@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-commerce';
+  link:string = 'shop';
+  search:string = '';
+
+  onSelectTabs = (tabs:string) => {
+    this.link = tabs;
+  }
+
+onSubmitSearch = (searchValue:string) =>{
+    this.search = searchValue
+    console.log(this.search);
+}
 }

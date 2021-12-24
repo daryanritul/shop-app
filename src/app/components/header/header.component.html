@@ -1,0 +1,30 @@
+<nav>
+  <div class="logo" (click)="onSelectTabs.emit('shop')">SHOP APP</div>
+  <div class="searchBar">
+    <input type="text" placeholder="Search Here" [(ngModel)]="search" />
+    <div class="label" (click)="onSubmitSearch.emit(search)">Search</div>
+  </div>
+  <div class="tabBox">
+    <div
+      [ngClass]="{ active: link === 'shop' }"
+      class="tabs"
+      (click)="onSelectTabs.emit('shop')"
+    >
+      Shop
+    </div>
+    <div
+      [ngClass]="{ active: link === 'orders' }"
+      class="tabs"
+      (click)="onSelectTabs.emit('orders')"
+    >
+      My Orders
+    </div>
+    <div
+      [ngClass]="{ active: link === 'cart' }"
+      class="tabs"
+      (click)="onSelectTabs.emit('cart')"
+    >
+      Cart
+    </div>
+  </div>
+</nav>

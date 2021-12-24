@@ -1,3 +1,11 @@
-<div>
-  <h1>Hello World</h1>
+<div class="app-container">
+  <app-header
+    [link]="link"
+    [search]="search"
+    (onSelectTabs)="onSelectTabs($event)"
+    (onSubmitSearch)="onSubmitSearch($event)"
+  ></app-header>
+  <app-home *ngIf="link === 'shop'"></app-home>
+  <app-my-orders *ngIf="link === 'orders'"></app-my-orders>
+  <app-cart *ngIf="link === 'cart'"></app-cart>
 </div>
