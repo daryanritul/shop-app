@@ -1,0 +1,13 @@
+.container {
+  margin: 20px 10% 0 10%;
+  border-radius: 5px;
+}
+.title {
+  font-size: x-large;
+  font-weight: bold;
+  padding: 10px;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}

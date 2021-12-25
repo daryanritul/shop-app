@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="container">
+  <div class="title">Categories</div>
+  <app-category-card
+    (onSelectCategory)="onSelectCategory($event)"
+  ></app-category-card>
+  <div class="title">{{ category | uppercase }}</div>
+  <div class="products">
+    <app-item-card
+      [name]="'jackets'"
+      [image]="
+        'https://rukminim1.flixcart.com/image/880/1056/ksuowi80/jacket/v/o/xxl-no-mns-jkt-51-ylw-christy-world-original-imag6bng2dvkzsyu.jpeg?q=50'
+      "
+      [price]="20000"
+    ></app-item-card>
+  </div>
+</div>

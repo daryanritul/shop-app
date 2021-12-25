@@ -9,6 +9,8 @@ import { MyOrdersComponent } from './layouts/my-orders/my-orders.component';
 import { ItemComponent } from './layouts/item/item.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
+import { ItemCardComponent } from './components/item-card/item-card.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 
 
@@ -19,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     MyOrdersComponent,
     ItemComponent,
-    HeaderComponent
+    HeaderComponent,
+    ItemCardComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,
