@@ -85,7 +85,7 @@ clearCart = () => {
         list = list.filter((item) => item.type === type)
        }
        if(category === 'all'){
-           list = list.slice(0,20);
+           list = list;
        }else{
            list = list.filter((items => items.category === category))
        }
