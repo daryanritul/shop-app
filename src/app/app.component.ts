@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'e-commerce';
-  link:string = 'cart';
+  link:string = 'shop';
   search:string = '';
 
   onSelectTabs = (tabs:string) => {

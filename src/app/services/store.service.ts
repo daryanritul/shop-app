@@ -17,12 +17,7 @@ export class StoreService {
   constructor() {
         this.storeItems = storeItems;
         this.cart = []
-        this.orders = [{
-            id  : '13123kb31bm3',
-            date : new Date().toString(),
-            totalPrice : 1010101,
-            items : []
-        }]
+        this.orders = []
    }
 
    getOrders = () =>{
