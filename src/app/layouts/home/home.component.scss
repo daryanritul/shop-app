@@ -26,7 +26,13 @@
   width: 100%;
   font-size: xx-large;
   margin-bottom: 30px;
+  flex-direction: column;
 }
+.sad {
+  font-size: 100px;
+  color: tomato;
+}
+
 .productHeader {
   display: flex;
   justify-content: space-between;

@@ -1,8 +1,4 @@
 <div class="itemModal">
-  <!-- <div>{{ pro.title }}</div>
-  <button (click)="onSelectItem.emit({ product: {}, status: false })">
-    close
-  </button> -->
   <div class="container">
     <div class="imageBox">
       <img src="{{ pro.imageUrl }}" alt="" />
@@ -57,7 +53,21 @@
             <div>XXL</div>
           </div>
         </div>
-        <div class="btn">
+        <div
+          class="btn"
+          (click)="
+            addToMyCart.emit({
+              id: '123',
+              productId: pro.id,
+              price: pro.price,
+              title: pro.title,
+              category: pro.category,
+              quantity: 1,
+              discount: pro.discount,
+              imageUrl: pro.imageUrl
+            })
+          "
+        >
           <div>Add to Cart</div>
         </div>
       </div>

@@ -6,6 +6,9 @@ nav {
   align-items: center;
   height: 60px;
   font-weight: bold;
+  position: sticky;
+  top: 0px;
+  z-index: 999;
 }
 .tabBox {
   display: flex;

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Cart } from 'src/app/model/cart';
 import { StoreService } from 'src/app/services/store.service';
 import { categoryList } from 'src/assets/category';
 
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit ,OnChanges{
         product : {},
         status : false
     }
+    myCart:Cart[] = [];
     @Input() search:string = ''
     @Output("onSubmitSearch") onSubmitSearch: EventEmitter<any> = new EventEmitter();
     categoryList = categoryList;
@@ -34,6 +36,12 @@ export class HomeComponent implements OnInit ,OnChanges{
             this.storeItems = list;
         }) 
         this.onChangeSort('Popularity');
+    }
+    
+    addToMyCart = (product:Cart) =>{
+        this.storeServices.addToCart(product)
+        console.log(JSON.stringify(this.myCart));
+        
     }
 
     onChangeSort = (order:string) => {
@@ -93,9 +101,11 @@ export class HomeComponent implements OnInit ,OnChanges{
     this.getStoreItems();
 }
   ngOnInit(): void {
+      this.storeServices.getMyCart().subscribe((cart) => {
+          this.myCart = cart
+      })
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.getStoreItems();
-      
   }
 }

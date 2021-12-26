@@ -67,6 +67,7 @@
       (onSelectItem)="onSelectItem($event)"
     ></app-item-card>
     <div *ngIf="storeItems.length <= 0" class="emptyProducts">
+      <span class="sad">&#9785;</span>
       Sorry! No Products Found
     </div>
   </div>
@@ -76,4 +77,5 @@
   *ngIf="itemCarrier.status"
   [itemCarrier]="itemCarrier"
   (onSelectItem)="onSelectItem($event)"
+  (addToMyCart)="addToMyCart($event)"
 ></app-item>

@@ -1,1 +1,67 @@
-<p>cart works!</p>
+<div class="container">
+  <div class="title">My Cart</div>
+  <div class="cart">
+    <div class="cart-list">
+      <ul class="header">
+        <li>Product</li>
+        <li>Name</li>
+        <li>Quantity</li>
+        <li>Price</li>
+        <li>Remove</li>
+      </ul>
+      <ul *ngFor="let item of cartList" class="cart-items">
+        <li>
+          <img src="{{ item.imageUrl }}" alt="" />
+        </li>
+        <li class="description">
+          <strong>{{ item.title }}</strong>
+          <span>{{ item.category | uppercase }}</span>
+        </li>
+        <li class="quantity">
+          <span (click)="removeQuantity(item.productId)" class="symbol"
+            >&#10229;</span
+          >
+          <span> {{ item.quantity }}</span>
+          <span class="symbol" (click)="addItem(item.productId)">&#10230;</span>
+        </li>
+        <li>
+          Rs.
+          {{
+            item.price - (item.price * item.discount) / 100 | number: "1.0-0"
+          }}
+        </li>
+        <li>
+          <strong
+            ><span (click)="removeProduct(item.productId)" class="symbol delete"
+              >&#10540;</span
+            ></strong
+          >
+        </li>
+      </ul>
+      <div *ngIf="cartList.length <= 0" class="emptyProducts">
+        <span class="sad">&#9785;</span>
+        Cart is Empty!
+      </div>
+    </div>
+    <div class="cart-price">
+      <div class="head">Price Details(10 items)</div>
+      <div class="pricelist">
+        <span>Total MRP</span>
+        <strong>Rs {{ MRP.mrp | number: "1.0-0" }}</strong>
+      </div>
+      <div class="pricelist disc">
+        <span>Discount on MRP</span>
+        <strong>Rs {{ MRP.discount | number: "1.0-0" }}</strong>
+      </div>
+      <div class="pricelist free">
+        <span>Delevry Charges</span>
+        <strong>FREE</strong>
+      </div>
+      <div class="pricelist">
+        <span>Total Amount</span>
+        <strong>Rs {{ MRP.mrp - MRP.discount | number: "1.0-0" }}</strong>
+      </div>
+      <div class="place">PLACE ORDER</div>
+    </div>
+  </div>
+</div>
