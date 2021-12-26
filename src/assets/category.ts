@@ -21,7 +21,7 @@ export const categoryList = [
   },
   {
     id: 5,
-    name: "tshirts",
+    name: "tshirt",
     url: "https://images.pexels.com/photos/6347892/pexels-photo-6347892.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
@@ -31,7 +31,7 @@ export const categoryList = [
   },
   {
     id: 7,
-    name: "shirts",
+    name: "shirt",
     url: "https://images.pexels.com/photos/297933/pexels-photo-297933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
@@ -45,3 +45,5 @@ export const categoryList = [
     url: "https://images.unsplash.com/photo-1611858447198-c6b3cc794943?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
   },
 ];
+
+export const brands = ["Peter England", "Louis Philippe", "Westside", "Pantaloons", "American Swan", "Allen Solly", "Raymond", "AJIO", "Flying Machine", "Monte Carlo", "Da Milano", "The Collective", "Khadi", "Munich Polo", "Planet Fashion", "Spykar", "HiDesign", "Park Avenue", "Turtle", "Mufti", "Hrx", "Red Chief", "Indian Terrain", "Black Berry", "J Hamstead", "Van Heusen"];

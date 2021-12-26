@@ -3,14 +3,77 @@
   <app-category-card
     (onSelectCategory)="onSelectCategory($event)"
   ></app-category-card>
-  <div class="title">{{ category | uppercase }}</div>
+  <div class="title">Products</div>
+  <div class="productHeader">
+    <div class="filters">
+      <div class="filters-title">Filters :</div>
+      <div class="filters-items">
+        <span>{{ type }}</span>
+        <strong *ngIf="type !== 'all'" (click)="resetFilters('type')">x</strong>
+      </div>
+      <div class="filters-items">
+        {{ category }}
+        <strong *ngIf="category !== 'all'" (click)="resetFilters('category')"
+          >x
+        </strong>
+      </div>
+      <div *ngIf="search !== ''" class="filters-items">
+        {{ search }}<strong (click)="resetFilters('search')">x</strong>
+      </div>
+    </div>
+    <div class="options">
+      <div class="options-dropdown">
+        Sort by:
+        <strong>{{ sort }}</strong>
+        <ul class="options-dropdown__list">
+          <li *ngIf="sort !== 'Latest'" (click)="onChangeSort('Latest')">
+            Latest
+          </li>
+          <li
+            *ngIf="sort !== 'Popularity'"
+            (click)="onChangeSort('Popularity')"
+          >
+            Popularity
+          </li>
+          <li
+            *ngIf="sort !== 'Better Discount'"
+            (click)="onChangeSort('Better Discount')"
+          >
+            Better Discount
+          </li>
+          <li
+            *ngIf="sort !== 'Price: Low to High'"
+            (click)="onChangeSort('Price: Low to High')"
+          >
+            Price: Low to High
+          </li>
+          <li
+            *ngIf="sort !== 'Price: High to Low'"
+            (click)="onChangeSort('Price: High to Low')"
+          >
+            Price: High to Low
+          </li>
+        </ul>
+      </div>
+      <div (click)="resetFilters('all')" class="options-button">
+        Clear Filters
+      </div>
+    </div>
+  </div>
   <div class="products">
     <app-item-card
-      [name]="'jackets'"
-      [image]="
-        'https://rukminim1.flixcart.com/image/880/1056/ksuowi80/jacket/v/o/xxl-no-mns-jkt-51-ylw-christy-world-original-imag6bng2dvkzsyu.jpeg?q=50'
-      "
-      [price]="20000"
+      *ngFor="let items of storeItems"
+      [product]="items"
+      (onSelectItem)="onSelectItem($event)"
     ></app-item-card>
+    <div *ngIf="storeItems.length <= 0" class="emptyProducts">
+      Sorry! No Products Found
+    </div>
   </div>
+  <div class="loadMore">Load More</div>
 </div>
+<app-item
+  *ngIf="itemCarrier.status"
+  [itemCarrier]="itemCarrier"
+  (onSelectItem)="onSelectItem($event)"
+></app-item>

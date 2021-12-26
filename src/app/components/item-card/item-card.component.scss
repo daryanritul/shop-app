@@ -3,14 +3,17 @@
   padding: 10px;
   width: fit-content;
   margin: 10px;
+  position: relative;
   &-image {
     width: 250px;
     height: 300px;
     object-fit: cover;
     transition: 200ms;
+    transition: ease-in-out 200ms;
     &:hover {
       opacity: 0.7;
       cursor: pointer;
+      transform: scale(1.1);
     }
   }
   &-title {
@@ -20,4 +23,41 @@
     text-align: center;
     font-weight: bold;
   }
+}
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.price {
+  font-weight: bold;
+}
+.total {
+  color: grey;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.discount {
+  color: tomato;
+  font-size: small;
+}
+.rating {
+  background: rgba(255, 255, 255, 0.644);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+.g {
+  color: #1faa59;
+}
+.r {
+  color: #d82e2f;
+}
+.y {
+  color: #a77b06;
+}
+.imageBox {
+  overflow: hidden;
 }

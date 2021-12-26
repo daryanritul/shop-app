@@ -1,1 +1,66 @@
-<p>item works!</p>
+<div class="itemModal">
+  <!-- <div>{{ pro.title }}</div>
+  <button (click)="onSelectItem.emit({ product: {}, status: false })">
+    close
+  </button> -->
+  <div class="container">
+    <div class="imageBox">
+      <img src="{{ pro.imageUrl }}" alt="" />
+    </div>
+    <div class="detailBox">
+      <div class="header">
+        <span>
+          <div class="title">{{ pro.title }}</div>
+          <div class="subtitle">by {{ pro.brand }}</div>
+        </span>
+        <div
+          class="back"
+          (click)="onSelectItem.emit({ product: {}, status: false })"
+        >
+          Go Back
+        </div>
+      </div>
+
+      <div class="priceBox">
+        <div class="price">
+          Rs.
+          {{ pro.price - (pro.price * pro.discount) / 100 | number: "1.0-0" }}
+        </div>
+        <div class="total">Rs. {{ pro.price }}</div>
+        <div class="discount">({{ pro.discount }}% OFF)</div>
+      </div>
+      <div class="rating">
+        {{ pro.rating }}
+        <span
+          [ngClass]="{
+            r: pro.rating < 2,
+            y: pro.rating >= 2 && pro.rating < 4,
+            g: pro.rating >= 4
+          }"
+          >&#9733;</span
+        >
+        <strong> Users Rating</strong>
+      </div>
+      <div class="infoBox">
+        <div><strong>Product type :</strong> {{ pro.category }}</div>
+        <div><strong>Styled for :</strong> {{ pro.type }}</div>
+        <div><strong>Product Description :</strong> {{ pro.description }}</div>
+      </div>
+      <div class="footer">
+        <div class="sizes">
+          <span>SELECT SIZE</span>
+          <div class="sizes-options">
+            <div>S</div>
+            <div>M</div>
+            <div>L</div>
+            <div>XL</div>
+            <div>XXL</div>
+          </div>
+        </div>
+        <div class="btn">
+          <div>Add to Cart</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

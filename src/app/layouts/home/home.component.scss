@@ -6,8 +6,116 @@
   font-size: x-large;
   font-weight: bold;
   padding: 10px;
+
+  &-sub {
+    font-size: medium;
+    font-weight: normal;
+  }
 }
 .products {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 10px;
+}
+.emptyProducts {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  width: 100%;
+  font-size: xx-large;
+  margin-bottom: 30px;
+}
+.productHeader {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 10px 0px;
+}
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-dropdown {
+    border: 1px solid lightgray;
+    padding: 5px 15px;
+    width: 250px;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+
+    &__list {
+      position: absolute;
+      width: 250px;
+      top: 35px;
+      background: #fff;
+      border: 1px solid lightgray;
+      right: 0;
+      transform: scale(1, 0);
+      transform-origin: top;
+      transition: ease-in-out 300ms;
+      list-style: none;
+      z-index: 5;
+      li {
+        padding: 10px 15px;
+        cursor: pointer;
+        &:hover {
+          background: rgba(0, 0, 0, 0.219);
+        }
+      }
+    }
+    strong {
+      padding: 0 10px;
+    }
+  }
+  &-button {
+    border: 1px solid lightgray;
+    padding: 5px 15px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: 100ms;
+    margin: 0 10px;
+    &:hover {
+      background: rgba(0, 0, 0, 0.438);
+      font-weight: bold;
+    }
+  }
+}
+.options-dropdown:hover .options-dropdown__list {
+  transform: scale(1, 1);
+}
+
+.filters {
+  display: flex;
+  &-title {
+    padding: 5px;
+    margin: 0px 15px;
+  }
+  &-items {
+    border: 1px solid lightgray;
+    padding: 5px;
+    margin: 0px 15px;
+    span {
+      margin-right: 10px;
+    }
+    strong {
+      margin-left: 5px;
+      padding: 0px 10px;
+      transition: 200ms;
+      cursor: pointer;
+      &:hover {
+        background: lightgrey;
+      }
+    }
+  }
+}
+.modalOpen {
+  transition: ease-in-out 1s;
+  transform: scale(1);
+}
+.modalClose {
+  transition: ease-in-out 1s;
+  transform: scale(0);
 }

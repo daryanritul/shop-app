@@ -15,9 +15,7 @@ export class AppComponent {
   onSelectTabs = (tabs:string) => {
     this.link = tabs;
   }
-
 onSubmitSearch = (searchValue:string) =>{
     this.search = searchValue
-    console.log(this.search);
 }
 }

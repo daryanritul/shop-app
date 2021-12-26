@@ -1,5 +1,29 @@
 <div class="card">
-  <img src="./../../../assets/img01.jpeg" alt="" class="card-image" />
-  <div class="card-title">Winter Yellow Jacket</div>
-  <div class="card-price">Rs 2000</div>
+  <div class="imageBox" (click)="onSelectItem.emit({product, status:true})">
+    <img src="{{ product.imageUrl }}" alt="" class="card-image" />
+  </div>
+  <div class="card-title">{{ product.title }}</div>
+  <div class="card-title">{{ product.brand }}</div>
+  <div class="list">
+    <div class="price">
+      Rs
+      {{
+        product.price - (product.price * product.discount) / 100
+          | number: "1.0-0"
+      }}
+    </div>
+    <div class="total">Rs {{ product.price }}</div>
+    <div class="discount">({{ product.discount }}% OFF)</div>
+    <div class="rating">
+      {{ product.rating }}
+      <span
+        [ngClass]="{
+          r: product.rating < 2,
+          y: product.rating >= 2 && product.rating < 4,
+          g: product.rating >= 4
+        }"
+        >&#9733;</span
+      >
+    </div>
+  </div>
 </div>

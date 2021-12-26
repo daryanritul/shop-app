@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
+    @Input() itemCarrier:Object ={}
+    @Output('onSelectItem') onSelectItem : EventEmitter<any> = new EventEmitter();
+
+
+    get pro(){
+        return (<any>this.itemCarrier).product
+    }
   constructor() { }
 
   ngOnInit(): void {
