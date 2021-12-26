@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import warehouse from 'src/assets/warehouse';
 import storeItems from 'src/assets/warehouse';
 import { Cart } from '../model/cart';
+import { Orders } from '../model/orders';
 
 import {Clothes} from './../model/clothes'
 @Injectable({
@@ -12,9 +13,29 @@ import {Clothes} from './../model/clothes'
 export class StoreService {
     storeItems : Clothes[];
     cart:Cart[];
+    orders:Orders[];
   constructor() {
-      this.storeItems = storeItems;
+        this.storeItems = storeItems;
         this.cart = []
+        this.orders = [{
+            id  : '13123kb31bm3',
+            date : new Date().toString(),
+            totalPrice : 1010101,
+            items : []
+        }]
+   }
+
+   getOrders = () =>{
+       return of(this.orders)
+   }
+
+   addToOrders = (item:Array<any>, total:number) => {
+        this.orders.push({
+                id : new Date().toLocaleTimeString(),
+                totalPrice : total,
+                date : new Date().toString(),
+                items : item
+        })
    }
 
    addToCart = (product:Cart) => {

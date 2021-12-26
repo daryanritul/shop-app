@@ -9,8 +9,7 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class CartComponent implements OnInit{
 cartList:Cart[] = [];
-totalPrice:number = 0;
-disc:number = 0;
+toogle:boolean  = false;
 
   constructor(private storeServices:StoreService) { 
   }
@@ -19,19 +18,37 @@ disc:number = 0;
   get MRP(){
       var mrp = 0;
       var disc = 0;
+      var quantity = 0;
       this.cartList.map((item) => {
         mrp = mrp + item.price * item.quantity;
         disc = disc + (item.price * item.discount/100) * item.quantity
+        quantity = quantity + item.quantity
       })
       return {
           mrp : mrp,
-          discount : disc
+          discount : disc,
+          q  : quantity
       }
   }
   addItem = (pid:string) => {
       this.storeServices.addToProduct(pid)
     this.getMyCart()
 
+  }
+
+  toogler = () => {
+      this.toogle = !this.toogle;
+      console.log(this.toogle);
+      
+  }
+
+  updateOrders = (item:Array<any>, num:number) => {
+    if(this.toogle && item.length > 0){    
+        this.storeServices.addToOrders(item,num)
+        this.storeServices.clearCart()
+        this.getMyCart()
+    }
+    this.toogler()
   }
   removeQuantity = (uid:string) => {
     this.storeServices.removeFromCart(uid)

@@ -1,0 +1,114 @@
+// .container {
+//   display: flex;
+//   margin: 5% 20%;
+//   flex-direction: column;
+// }
+// .title {
+//   font-weight: bold;
+//   font-size: xx-large;
+//   border-bottom: 2px solid grey;
+// }
+// .header {
+//   font-weight: bold;
+//   border-bottom: 1px solid grey;
+// }
+// .list {
+//   ul {
+//     display: grid;
+//     grid-template-columns: 1fr 2fr 2fr 1fr;
+//     list-style: none;
+//     gap: 10px;
+//     li {
+//       text-align: center;
+//       padding: 10px;
+//     }
+//   }
+// }
+
+.container {
+  display: flex;
+  margin: 0 5%;
+  margin-top: 10px;
+  flex-direction: column;
+}
+.title {
+  padding: 15px;
+  font-weight: bold;
+  font-size: x-large;
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+  text-align: left;
+}
+.myOrders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  text-align: left;
+}
+ul {
+  list-style: none;
+  display: grid;
+  gap: 5px;
+  border-bottom: 1px solid lightgray;
+}
+li {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order-ul {
+  cursor: pointer;
+  &:hover {
+    background: lightgrey;
+  }
+}
+.order-ul,
+.header-order {
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+}
+
+.cart-ul,
+.header-cart {
+  grid-template-columns: 2fr 1fr 2fr 2fr;
+}
+
+.header-cart,
+.header-order {
+  font-weight: bold;
+  position: sticky;
+  top: 0px;
+  background: #fff;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+.emptyProducts {
+  margin-top: 10px;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  width: 100%;
+  font-size: xx-large;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+.sad {
+  font-size: 100px;
+  color: tomato;
+}
+.cartList {
+  margin: 10px;
+  border: 1px solid lightgray;
+}
+.text {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  padding: 10px;
+}

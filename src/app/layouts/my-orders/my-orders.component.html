@@ -1,1 +1,65 @@
-<p>my-orders works!</p>
+<div class="container">
+  <div class="title">My Orders</div>
+  <div class="myOrders">
+    <div class="ordersList">
+      <ul class="header-order">
+        <li>S.No</li>
+        <li>Total Price</li>
+        <li>Order</li>
+        <li>Items</li>
+      </ul>
+      <ul
+        *ngFor="let item of orders; index as i"
+        class="order-ul"
+        (click)="onSelectOrder(item.items)"
+      >
+        <li class="order-li">{{ i + 1 }}.</li>
+        <li class="order-li">
+          Rs.
+          {{ item.totalPrice | number: "1.0-0" }}
+        </li>
+        <li class="order-li">
+          {{ item.date | date }}
+        </li>
+        <li class="order-li">
+          {{ item.items.length }}
+        </li>
+      </ul>
+      <div *ngIf="orders.length <= 0" class="emptyProducts">
+        <span class="sad">&#9785;</span>
+        No Orders Yet!
+      </div>
+    </div>
+    <div class="cartList">
+      <div class="text">Order Details</div>
+      <ul class="header-cart">
+        <li>Title</li>
+        <li>Quantity</li>
+        <li>Price</li>
+        <li>Category</li>
+      </ul>
+      <ul *ngFor="let item of items; index as i" class="cart-ul">
+        <li class="cart-li">
+          {{ item.title }}
+        </li>
+        <li class="cart-li">
+          {{ item.quantity }}
+        </li>
+        <li class="cart-li">
+          Rs.
+          {{
+            (item.price - (item.price * item.discount) / 100) * item.quantity
+              | number: "1.0-0"
+          }}
+        </li>
+        <li class="cart-li">
+          {{ item.category | uppercase }}
+        </li>
+      </ul>
+      <div *ngIf="items.length <= 0" class="emptyProducts">
+        <span class="sad">&#10052;</span>
+        Select Orders to View Details
+      </div>
+    </div>
+  </div>
+</div>

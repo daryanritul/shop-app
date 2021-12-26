@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="cart-price">
-      <div class="head">Price Details(10 items)</div>
+      <div class="head">Price Details({{ MRP.q }} items)</div>
       <div class="pricelist">
         <span>Total MRP</span>
         <strong>Rs {{ MRP.mrp | number: "1.0-0" }}</strong>
@@ -61,7 +61,23 @@
         <span>Total Amount</span>
         <strong>Rs {{ MRP.mrp - MRP.discount | number: "1.0-0" }}</strong>
       </div>
-      <div class="place">PLACE ORDER</div>
+      <div *ngIf="cartList.length > 0" class="place" (click)="toogler()">
+        PLACE ORDER
+      </div>
+    </div>
+    <div *ngIf="toogle" class="placeOrder">
+      <div class="placeOrder-popUp">
+        <div class="message">Are you sure want to place Order?</div>
+        <div class="btnGrp">
+          <div
+            class="btn g"
+            (click)="updateOrders(cartList, MRP.mrp - MRP.discount)"
+          >
+            Yes
+          </div>
+          <div class="btn r" (click)="toogler()">No</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

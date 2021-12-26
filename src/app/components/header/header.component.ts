@@ -19,7 +19,11 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   get length(){
      this.storeService.getMyCart().subscribe(cart => {
-         this.len = cart.length
+         var finalLen = 0;
+         cart.map((item) => {
+             finalLen = finalLen + item.quantity
+         })
+         this.len = finalLen;
         })
         return this.len;
   }
